@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 import {
+  ArrowUpRight,
   Award,
   BookOpenCheck,
   Check,
@@ -13,6 +14,7 @@ import {
   HeartHandshake,
   Layers,
   RotateCcw,
+  Send,
   Sparkles,
   TrendingUp,
   Trophy,
@@ -869,6 +871,59 @@ export const ResultsScreen: React.FC<ResultsScreenProps> = ({
           </button>
         </div>
       </motion.footer>
+
+      {/* ==================== AUTHOR TELEGRAM CHANNEL CARD ==================== */}
+      <motion.section
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.5 }}
+        className="mt-7 mb-4"
+      >
+        <a
+          href="https://t.me/coverjs"
+          target="_blank"
+          rel="noreferrer"
+          className="glass-panel glass-card-hover group relative block overflow-hidden rounded-3xl border border-sky-400/25 p-6 sm:p-8"
+        >
+          {/* Ambient Telegram glow */}
+          <div className="pointer-events-none absolute -top-20 -right-20 h-60 w-60 rounded-full bg-sky-400/15 blur-3xl transition-opacity duration-300 group-hover:opacity-90" />
+          <div className="pointer-events-none absolute -bottom-24 -left-16 h-56 w-56 rounded-full bg-indigo-500/15 blur-3xl" />
+
+          <div className="relative flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
+            <div className="flex items-start gap-4 sm:gap-5">
+              <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-sky-400/40 bg-gradient-to-br from-sky-400/25 to-indigo-500/20 text-sky-300 shadow-[0_0_30px_rgba(56,189,248,0.22)] transition-transform duration-300 group-hover:scale-105">
+                <Send className="h-6 w-6 -translate-x-0.5 translate-y-0.5" />
+              </div>
+
+              <div>
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="inline-flex items-center gap-1.5 rounded-full border border-sky-400/30 bg-sky-400/12 px-3 py-0.5 text-[11px] font-semibold text-sky-200">
+                    Telegram-канал автора
+                  </span>
+                  <span className="font-mono text-xs text-slate-400">
+                    @coverjs
+                  </span>
+                </div>
+
+                <h3 className="mt-2.5 font-display text-xl font-bold text-white transition-colors group-hover:text-sky-200 sm:text-2xl">
+                  Mustafa | Ковры с привкусом убыточного SaaS
+                </h3>
+
+                <p className="mt-1.5 max-w-2xl text-sm leading-relaxed text-slate-300">
+                  Frontend разработчик уже 5й год, здесь пишу о разработке, об
+                  инструментах и о жизни.
+                </p>
+              </div>
+            </div>
+
+            <div className="btn-shine inline-flex shrink-0 items-center gap-2 rounded-2xl bg-gradient-to-r from-sky-400 to-indigo-400 px-6 py-3.5 font-display text-sm font-bold text-slate-950 shadow-[0_0_28px_rgba(56,189,248,0.32)] transition-transform duration-200 group-hover:scale-[1.03]">
+              <span>Подписаться</span>
+              <ArrowUpRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </div>
+          </div>
+        </a>
+      </motion.section>
     </div>
   );
 };
